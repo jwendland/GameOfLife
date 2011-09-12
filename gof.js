@@ -1,19 +1,26 @@
 $(document).ready(function() {
   $('#createButton').click(function() {
-    (new GameOfLife($('#size_x').val(), $('#size_y').val(), 2, 100)).create();
+    var gof = new GameOfLife(
+      $('#size_x').val(), 
+      $('#size_y').val(), 
+      $('#delay').val(),
+      $('#generations').val());
+    gof.create();
   })
 });
 
-function GameOfLife(x, y, pause, iterations) {
+/* constructor function */
+function GameOfLife(x, y, delay, generations) {
   this.x = x;
   this.y = y;
-  this.pause = pause;
-  this.iterations = iterations;
-  this.currentIteration = 0;
+  this.delay = delay;
+  this.generations = generations;
+  this.currentGeneration = 0;
 }
 
 GameOfLife.prototype = {
 
+  /* create the game board */
   create: function() {
     $('#board').empty();
     for (var i = 0; i < this.y; i++) {
@@ -28,6 +35,7 @@ GameOfLife.prototype = {
     $('#runButton').click($.proxy(this.run, this));
   },
 
+  /* count how many living neighbors cell(x,y) has got */
   countEnv: function(x, y) {
     var retval = 0;
     for (var yy = y-1; yy <= y+1; yy++) {
@@ -46,12 +54,12 @@ GameOfLife.prototype = {
     return retval;
   },
 
+  /* run the game */
   run: function() {
     for (var y = 0; y < this.y; y++) {
       for (var x = 0; x < this.x; x++) {
         var cell = $('#cell_' + y + '_' + x);
         var envCount = this.countEnv(x, y); 
-        cell.text(envCount);
         // rule 1
         if (!cell.hasClass('alive') && envCount == 3) {
           cell.addClass('should_alive');
@@ -66,11 +74,10 @@ GameOfLife.prototype = {
         cell.addClass('should_dead');
       }
     }
-    console.log('iteration ' + this.currentIteration);
     $('.should_alive').addClass('alive').removeClass('should_alive');
     $('.should_dead').removeClass('alive').removeClass('should_dead');
-    if (this.iterations > ++this.currentIteration) {
-      window.setTimeout($.proxy(this.run, this), this.pause * 1000);
+    if (this.generations > ++this.currentGeneration) {
+      window.setTimeout($.proxy(this.run, this), this.delay);
     }
   }
 }

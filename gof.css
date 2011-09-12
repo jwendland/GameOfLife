@@ -1,19 +1,36 @@
 body {
-  font-family: sans-serif;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11pt;
+}
+
+#doc {
+  padding-top: 1em;
+  margin-bottom: 2em;
+}
+
+#board {
+  float: left;
+  margin-left: 5em;
 }
 
 form#setup div {
-  width: 5em;
+  width: 10em;
   text-align: right;
-}
-
-form#setup div.button {
-  text-align: center;
 }
 
 form#setup input[type=text] {
-  width: 2em;
+  width: 1.5em;
   text-align: right;
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+#generations {
+  width: 2em !important;
+}
+
+#delay {
+  width: 2.5em !important;
 }
 
 div.row {
@@ -29,4 +46,15 @@ div.cell {
 
 div.cell.alive {
   background-color: #00f;
+}
+
+h1 {
+  font-size: 120%;
+  background-color: #00f;
+  color: #fff;
+  padding-left: 1em;
+}
+
+li {
+  font-style: oblique;
 }

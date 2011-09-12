@@ -6,22 +6,34 @@
   </head>
   <body>
 
-    <form id="setup">
-      <div>
-        <label for="size_x">width:</label>
-        <input type="text" id="size_x" value="5" />
-      </div>
-      <div>
-        <label for="size_y">height:</label>
-        <input type="text" id="size_y" value="5" />
-      </div>
-      <div class="button">
-        <input type="button" id="createButton" value="create" />
-      </div>
-    </form>
+    <h1>The Game of Life</h1>
 
+    <div id="doc">
+      <form id="setup">
+      <p>
+      This is the <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a>
+      as invented by <a href="http://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a>
+      in 1970.
+      </p>
+      <p>
+      The Game of Life follows three simple rules:
+        <ul>
+          <li>A cell becomes alive if it has exactly three living neighbors.</li>
+          <li>A living cell will survive if it has two or three living neighbors.</li>
+          <li>A living cell will die in any other case due to missing resources or too many neighbors.</li>
+        </ul>
+      </p>
+      <p>
+      <input type="button" id="createButton" value="Create" /> a board <input type="text" id="size_x" value="5" /> wide,
+      <input type="text" id="size_y" value="5" /> high and place initial cells by clicking onto the board. 
+      Each of <input type="text" id="generations" value="100" /> generations will last
+      <input type="text" id="delay" value="1000" /> miliseconds.
+      Then let it <input type="button" id="runButton" value="run!" />
+      </p>
+
+      </form>
+    </div>
     <div id="board"></div>
-    <input type="button" id="runButton" value="run!" />
 
   </body>
 </html>
