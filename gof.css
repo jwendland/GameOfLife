@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+}
+
+form#setup div {
+  width: 5em;
+  text-align: right;
+}
+
+form#setup div.button {
+  text-align: center;
+}
+
+form#setup input[type=text] {
+  width: 2em;
+  text-align: right;
+}
+
+div.row {
+  height: 2em;
+}
+
+div.cell {
+  height: 2em;
+  width: 2em;
+  border: 1px solid blue;
+  display: inline-block;
+}
+
+div.cell.alive {
+  background-color: #00f;
+}
