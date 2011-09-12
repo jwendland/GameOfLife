@@ -23,6 +23,7 @@ GameOfLife.prototype = {
   /* create the game board */
   create: function() {
     $('#board').empty();
+    $('#board').append('<h2 id="gencount">generation 0</h2>');
     for (var i = 0; i < this.y; i++) {
       var rowId = "row" + i;
       $('#board').append('<div class="row" id="' + rowId + '"></div>');
@@ -76,6 +77,7 @@ GameOfLife.prototype = {
     }
     $('.should_alive').addClass('alive').removeClass('should_alive');
     $('.should_dead').removeClass('alive').removeClass('should_dead');
+    $('#gencount').text('generation ' + this.currentGeneration);
     if (this.generations > ++this.currentGeneration) {
       window.setTimeout($.proxy(this.run, this), this.delay);
     }

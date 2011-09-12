@@ -34,12 +34,12 @@ form#setup input[type=text] {
 }
 
 div.row {
-  height: 2em;
+  height: 1em;
 }
 
 div.cell {
-  height: 2em;
-  width: 2em;
+  height: 1em;
+  width: 1em;
   border: 1px solid blue;
   display: inline-block;
 }
@@ -53,6 +53,10 @@ h1 {
   background-color: #00f;
   color: #fff;
   padding-left: 1em;
+}
+
+h2 {
+  font-size: 100%;
 }
 
 li {
