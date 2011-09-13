@@ -7,6 +7,19 @@ $(document).ready(function() {
       $('#generations').val());
     gof.create();
   })
+  for (var preset in GameOfLifePresets) {
+    $('#presets').append('<option value="' + preset + '">' + preset + '</option>');
+  }
+  $('#presets').change(function(){
+    var preset = GameOfLifePresets[$(this).val()];
+    var gof = new GameOfLife(
+      preset.sizeX,
+      preset.sizeY,
+      $('#delay').val(),
+      $('#generations').val());
+    gof.create();
+    gof.setup(preset.setup);
+  });
 });
 
 /* constructor function */
@@ -34,6 +47,15 @@ GameOfLife.prototype = {
     }
     $('.cell').click(function(){ $(this).toggleClass('alive')});
     $('#runButton').click($.proxy(this.run, this));
+  },
+
+
+  setup: function(cells) {
+    for (var i in cells) {
+      var cell = cells[i];
+      var cellSelector = '#cell_' + cell[1] + '_' + cell[0];
+      $(cellSelector).addClass('alive');
+    }
   },
 
   /* count how many living neighbors cell(x,y) has got */

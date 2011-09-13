@@ -2,6 +2,7 @@
   <head>
     <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
     <script src="gof.js"></script>
+    <script src="presets.js"></script>
     <link rel="stylesheet" type="text/css" href="gof.css" />
   </head>
   <body>
@@ -25,7 +26,11 @@
       </p>
       <p>
       <input type="button" id="createButton" value="Create" /> a board <input type="text" id="size_x" value="10" /> wide,
-      <input type="text" id="size_y" value="10" /> high and place initial cells by clicking onto the board. 
+      <input type="text" id="size_y" value="10" /> high and place initial cells by clicking onto the board. <br/>
+      Or use a preset: 
+      <select id="presets">
+        <option disabled="disabled">choose...</option>
+      </select> <br/>
       Each of <input type="text" id="generations" value="100" /> generations will last
       <input type="text" id="delay" value="1000" /> miliseconds.
       Then let it <input type="button" id="runButton" value="run!" />
